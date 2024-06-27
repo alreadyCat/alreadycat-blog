@@ -1,6 +1,6 @@
-@import url("@/assets/fonts/nunito/index.scss");
-@import url("@/assets/fonts/Avenir/index.scss");
-
-html{
-  overflow-x: hidden;
+@import "@/assets/fonts/Roboto/index.scss";
+@import "./md-editor-reset.scss";
+html, body {
+  height: 100%;
+  //overflow: auto;
 }

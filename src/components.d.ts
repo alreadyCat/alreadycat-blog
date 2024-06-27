@@ -7,11 +7,21 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    ArticleCard: typeof import('./components/ArticleCard/index.vue')['default']
+    Article: typeof import('./components/Article/index.vue')['default']
+    Card: typeof import('./components/Card/index.vue')['default']
+    Category: typeof import('./components/Category/index.vue')['default']
+    CategoryItem: typeof import('./components/Category/components/CategoryItem/index.vue')['default']
+    Components: typeof import('./components/Category/components/index.vue')['default']
     Footer: typeof import('./components/Footer/index.vue')['default']
     Header: typeof import('./components/Header/index.vue')['default']
     Layout: typeof import('./components/Layout/index.vue')['default']
+    List: typeof import('./components/List/index.vue')['default']
+    ListItem: typeof import('./components/List/components/ListItem/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SvgIcon: typeof import('./components/SvgIcon/index.vue')['default']
+    TodoList: typeof import('./components/TodoList/index.vue')['default']
+    Top: typeof import('./components/Layout/components/Top/index.vue')['default']
+    Weather: typeof import('./components/Weather/index.vue')['default']
   }
 }
