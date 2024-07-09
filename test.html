@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    .parent{
+        position: relative;
+        border-radius: 1px solid red;
+        overflow: hidden;
+    }
+    .son{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        inset: 0;
+    }
+    .child{
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+    }
+</style>
+<body>
+    <div class="parent">
+        <div class="son">
+            <div class="child">Text</div>
+        </div>
+    </div>
+</body>
+</html>

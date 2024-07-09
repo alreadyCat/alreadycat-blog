@@ -7,21 +7,27 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AiSummary: typeof import('./components/AiSummary/index.vue')['default']
     Article: typeof import('./components/Article/index.vue')['default']
+    ArticleCover: typeof import('./components/ArticleCover/index.vue')['default']
     Card: typeof import('./components/Card/index.vue')['default']
     Category: typeof import('./components/Category/index.vue')['default']
     CategoryItem: typeof import('./components/Category/components/CategoryItem/index.vue')['default']
-    Components: typeof import('./components/Category/components/index.vue')['default']
     Footer: typeof import('./components/Footer/index.vue')['default']
     Header: typeof import('./components/Header/index.vue')['default']
+    Introduce: typeof import('./components/Introduce/index.vue')['default']
     Layout: typeof import('./components/Layout/index.vue')['default']
     List: typeof import('./components/List/index.vue')['default']
     ListItem: typeof import('./components/List/components/ListItem/index.vue')['default']
+    Music: typeof import('./components/Music/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Search: typeof import('./components/Search/index.vue')['default']
     SvgIcon: typeof import('./components/SvgIcon/index.vue')['default']
     TodoList: typeof import('./components/TodoList/index.vue')['default']
+    Tools: typeof import('./components/Tools/index.vue')['default']
     Top: typeof import('./components/Layout/components/Top/index.vue')['default']
+    Typed: typeof import('./components/AiSummary/components/Typed/index.vue')['default']
     Weather: typeof import('./components/Weather/index.vue')['default']
   }
 }

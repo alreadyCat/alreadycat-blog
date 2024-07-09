@@ -1,6 +1,26 @@
 @import "@/assets/fonts/Roboto/index.scss";
 @import "./md-editor-reset.scss";
-html, body {
+@import "@/assets/iconfont/iconfont.css";
+@import "./dark.scss";
+html,
+body {
   height: 100%;
   //overflow: auto;
+  transition: all 0.2s ease;
+}
+
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+  .top-container .top-hi-text,
+  .article-other-content {
+    display: none;
+  }
 }

@@ -1,5 +1,5 @@
 <template>
-    <Card>
+    <Card  :border="true">
         <div class="weather-contaienr">
             <div class="user-location">{{ weatherInfo.province + "-" + weatherInfo.city }}</div>
             <div class="weather-image">
@@ -23,8 +23,10 @@ const weatherInfo = ref({
     name: ""
 })
 onMounted(async () => {
+
     const ipInfo = await getUserIp()
     const res = await getWeather(ipInfo.adcode)
+    // @ts-ignore
 
     const { province, city, weather, temperature } = res?.lives?.[0]
     weatherInfo.value = {
@@ -32,6 +34,7 @@ onMounted(async () => {
         city,
         weather,
         temperature,
+        // @ts-ignore
         name: weatherConfig[weather]
     }
 })
@@ -39,8 +42,8 @@ onMounted(async () => {
 
 <style lang="scss" scoped>
 .weather-contaienr {
-    width: 189px;
-    height: 301px;
+    width: 100%;
+    height: 300px;
     box-sizing: border-box;
     padding: 27px 50px;
     display: flex;
@@ -55,7 +58,7 @@ onMounted(async () => {
         font-weight: bold;
         line-height: 25px;
         letter-spacing: 0px;
-        color: #9E9E9E;
+        color: #000;
         text-wrap: nowrap;
     }
 

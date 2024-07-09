@@ -1,4 +1,10 @@
+.checkbox-wrapper-15{
+  width: 100%;
+  overflow: hidden;
+}
 .checkbox-wrapper-15 .cbx {
+    display: flex;  
+    
     -webkit-user-select: none;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
@@ -48,6 +54,11 @@
   }
   .checkbox-wrapper-15 .cbx span:last-child {
     margin-left: 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    
   }
   .checkbox-wrapper-15 .cbx span:last-child:after {
     content: '';

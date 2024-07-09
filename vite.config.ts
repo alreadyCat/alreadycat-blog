@@ -8,6 +8,7 @@ import postcsspxtoviewport from "postcss-px-to-viewport";
 import AutoImport from "unplugin-auto-import/vite";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import { VueHooksPlusResolver } from "@vue-hooks-plus/resolvers";
+import vueJsx from "@vitejs/plugin-vue-jsx";
 
 // https://vitejs.dev/config/
 
@@ -30,6 +31,7 @@ const px2vw = postcsspxtoviewport({
 export default defineConfig({
   plugins: [
     vue(),
+    vueJsx(), //插件使用
     Components({
       // 指定组件所在文件夹的位置，默认是src/components
       dirs: ["src/components"],
@@ -45,7 +47,7 @@ export default defineConfig({
     }),
     createSvgIconsPlugin({
       // 指定需要缓存的图标文件夹
-      iconDirs: [path.resolve(process.cwd(), 'src/assets/svg')],
+      iconDirs: [path.resolve(process.cwd(), "src/assets/svg")],
       symbolId: "icon-[name]",
       // 在生成symbol的时候，是否使用id作为symbolId的前缀
       //生成组件插入位置 只有两个值 boby-last | body-first

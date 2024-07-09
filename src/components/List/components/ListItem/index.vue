@@ -1,24 +1,35 @@
 <template>
-  <div class="article-list-item-container">
+  <div
+    class="article-list-item-container"
+    @click="
+      () =>
+        $router.push({
+          path: '/article',
+          query: {
+            id: props.id,
+          },
+        })
+    "
+  >
     <div class="article-list-item-cover">
+      <img :src="props.coverImage" alt="" />
     </div>
     <div class="article-list-item-content">
       <div class="article-list-item-title">
         <slot name="title">
-          5 Rekomendasi Games Terbaik di Bulan Agustus 2021
+          {{ props.title }}
         </slot>
       </div>
       <div class="article-list-item-date">
-        <slot name="date">
-          August 01, 2021
-        </slot>
+        <slot name="date"> {{ props.date }} </slot>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-
+import { ArticleList } from "../../typings";
+const props = defineProps<ArticleList.ArticleInfo>();
 </script>
 
 <style scoped lang="scss">
@@ -31,12 +42,14 @@
   display: flex;
   justify-content: space-between;
   gap: 12px;
+  cursor: pointer;
 
   .article-list-item-cover {
     width: 69px;
     height: 58px;
     border-radius: 10px;
-    background: #FCDEC2;
+    background: #fcdec2;
+    overflow: hidden;
 
     img {
       width: 100%;
@@ -64,7 +77,6 @@
       text-overflow: ellipsis;
       white-space: normal;
       word-break: break-word;
-
     }
 
     .article-list-item-date {

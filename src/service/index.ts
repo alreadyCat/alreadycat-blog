@@ -1,6 +1,6 @@
 import { request } from "@/request";
 import { Api } from "./typings";
-import axios from "axios";
+import { ArticleList } from "@/components/List/typings";
 
 export const getCategoryList = async () => {
   return request<Category.Entity[]>("/category");
@@ -50,5 +50,13 @@ export const getTodoList = async () => {
 };
 
 export const getArticleById = async (id: number) => {
-  return request<Api.Article>(`/article/getArticleDetail/${id}`);
+  return request<Api.ArticleEntity>(`/article/getArticleDetail/${id}`);
+};
+
+export const getArticleListGroupByTag = async () => {
+  return request<ArticleList.ArticleListItem[]>("/article/getAllGroupByTag");
+};
+
+export const getRecentlyReleaseArticle = async () => {
+  return request<ArticleList.ArticleInfo[]>("/article/getRecentlyRelease");
 };

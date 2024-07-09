@@ -1,118 +1,112 @@
 <template>
-  <div class="article-container">
-    <Card>
-      <div class="article-content">
-        <div class="article-left">
-          <!--          <div class="article-cover">-->
-          <!--            <img-->
-          <!--                src="@/assets/images/article1.png"-->
-          <!--                alt="article-cover"-->
-          <!--            />-->
-          <!--          </div>-->
-          <div class="article-substance">
-            <MdPreview :previewTheme="previewTheme" :codeTheme="codeTheme" :editorId="id" :modelValue="data?.content" />
-          </div>
-        </div>
-        <div class="article-right">
-          <Card style="height: 275px; margin-bottom: 23px"> </Card>
-          <Card style="height: 275px; margin-bottom: 23px"> </Card>
-          <Card style="width: 405px; height: 275px"> </Card>
+  <div class="article-detail-container" :class="{
+    'one-column': store.articleDetailColumnLayout === 'one'
+  }">
+    <Card class="article-left-content">
+      <div>
+        <AiSummary> </AiSummary>
+        <MdPreview :previewTheme="previewTheme" :codeTheme="codeTheme" :editorId="editorId"
+          :modelValue="data?.content" />
+        <div class="article-footer">
+          <Comment />
         </div>
       </div>
     </Card>
+    <div class="article-other-content">
+      <Catalog :editorId="editorId" />
+      <Recently />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { MdPreview, MdCatalog } from "md-editor-v3";
+import { MdPreview } from "md-editor-v3";
 import "md-editor-v3/lib/style.css";
-import { useRoute } from 'vue-router'
+import { useRoute } from "vue-router";
 import { getArticleById } from "@/service";
+import useProvide from "@/hooks/useProvide";
+import Catalog from "./components/Catalog/index.vue";
+import Recently from "./components/Recently/index.vue";
+import Comment from "./components/Comment/index.vue";
+import { previewTheme, codeTheme } from './index.config.ts'
+import { useGlobalStore } from "@/store/index.ts";
 
-const id = "preview-only";
-const previewTheme = [
-  "default",
-  "github",
-  "vuepress",
-  "mk-cute",
-  "smart-blue",
-  "cyanosis",
-][0];
-const codeTheme = [
-  "atom",
-  "a11y",
-  "github",
-  "gradient",
-  "kimbie",
-  "paraiso",
-  "qtcreator",
-  "stackoverflow",
-][0];
 
+const store = useGlobalStore()
 const route = useRoute();
+const { updateProvideData } = useProvide("title");
+const editorId = computed(() => `article-${route.query.id}`);
+const { data } = useRequest(() => getArticleById(route.query.id as any), {
+  refreshDeps: [() => route.query.id],
+});
+watch(
+  () => data.value?.id,
+  () => {
+    updateProvideData(data.value?.title);
+    document.body.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    })
+  },
+);
 
-const { data } = useRequest(() => getArticleById(route.query.id as number))
-
-console.log(data);
+function scrollToRightSticky() {
+  const el = document.querySelector(".article-other-content") as HTMLElement;
+  el!.style.top =
+    document.querySelector(".top-hi")?.getBoundingClientRect().height! -
+    20 +
+    "px";
+}
+onMounted(() => {
+  scrollToRightSticky();
+});
 
 </script>
 
 <style scoped lang="scss">
-.article-container {
-  .article-content {
-    padding: 27px 17px 17px 27px;
-    box-sizing: border-box;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    gap: 35px;
+.article-detail-container {
+  width: 100%;
+  display: flex;
+  gap: 12px;
 
-    .article-left {
-      width: 58%;
 
-      .article-cover {
-        width: 564px;
-        height: 423px;
-        border-radius: 20px;
-
-        img {
-          width: 100%;
-          height: 100%;
-          border-radius: 20px;
-          object-fit: cover;
-        }
-      }
-
-      .article-title {
-        font-family: "Roboto", sans-serif;
-        font-size: 36px;
-        font-weight: 600;
-        line-height: 50px;
-        letter-spacing: 0px;
-        color: #000000;
-      }
-
-      .article-substance {
-        margin-top: 19px;
-        font-family: "Roboto", sans-serif;
-        font-size: 11px;
-        font-weight: 600;
-        line-height: 15px;
-        text-align: justify;
-        /* 浏览器可能不支持 */
-        letter-spacing: 0px;
-        color: #000000;
-        overflow-y: auto;
-
-        &::-webkit-scrollbar {
-          display: none;
-        }
-      }
+  &.one-column {
+    .article-left-content {
+      width: 100%;
     }
 
-    .article-right {
-      flex: 1;
+    .article-other-content {
+      display: none
     }
   }
+
+  .article-left-content {
+    // flex: 1;
+    width: 80%;
+    padding: 27px 17px 17px 27px;
+    transition: all 0.3s ease;
+
+    .md-editor {
+      margin-top: -30px;
+    }
+
+  }
+
+  .article-other-content {
+    // width: 285px;
+    width: 20%;
+    height: 100%;
+    position: sticky;
+    top: 109px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    transition: all 0.3s ease;
+
+  }
+
+
+
+
 }
 </style>

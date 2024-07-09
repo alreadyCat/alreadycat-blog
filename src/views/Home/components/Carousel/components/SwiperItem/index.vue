@@ -14,20 +14,19 @@
 </template>
 
 <script setup lang="ts">
-import { Api } from '@/service/typings';
-import { useRouter } from 'vue-router'
-const props = withDefaults(defineProps<Partial<Api.CarouselCategory>>(), {})
+import { Api } from "@/service/typings";
+import { useRouter } from "vue-router";
+const props = withDefaults(defineProps<Partial<Api.CarouselCategory>>(), {});
 
-
-const router = useRouter()
+const router = useRouter();
 const gotoDetail = () => {
   router.push({
     path: "/article",
     query: {
-      id: props.id
-    }
-  })
-}
+      id: props.id,
+    },
+  });
+};
 </script>
 
 <style scoped lang="scss">
@@ -88,7 +87,7 @@ const gotoDetail = () => {
       height: 18px;
       border-radius: 25px;
       opacity: 1;
-      background: #D074D8;
+      background: #d074d8;
       margin-left: auto;
       margin-bottom: 0;
       cursor: pointer;
@@ -98,7 +97,6 @@ const gotoDetail = () => {
       font-weight: bold;
       line-height: 18px;
       text-align: center;
-
     }
   }
 }
