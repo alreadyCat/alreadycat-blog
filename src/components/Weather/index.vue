@@ -1,5 +1,5 @@
 <template>
-    <Card  :border="true">
+    <Card :border="true">
         <div class="weather-contaienr">
             <div class="user-location">{{ weatherInfo.province + "-" + weatherInfo.city }}</div>
             <div class="weather-image">

@@ -12,9 +12,9 @@ import axios from "axios";
 async function getMusicList(){
  return await axios.get("http://82.157.100.12:3000/api",{
     params:{
-      server:"tencent",
+      server:"netease",
       type:"playlist",
-      id:"7434078577"
+      id:"459681037"
     }
   })
 }

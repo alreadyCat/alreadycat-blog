@@ -4,6 +4,8 @@
     <div class="left">
       <ArticleCover class="post-item" v-for="(item, index) in articleList" :key="index" v-bind="item" content=""
         :coverPosition="index % 2 ? 'right' : 'left'" />
+
+      
     </div>
     <div class="right">
       <Introduce class="function-card" />

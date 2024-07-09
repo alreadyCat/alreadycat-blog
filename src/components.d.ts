@@ -13,6 +13,7 @@ declare module 'vue' {
     Card: typeof import('./components/Card/index.vue')['default']
     Category: typeof import('./components/Category/index.vue')['default']
     CategoryItem: typeof import('./components/Category/components/CategoryItem/index.vue')['default']
+    FancyBox: typeof import('./components/FancyBox/index.vue')['default']
     Footer: typeof import('./components/Footer/index.vue')['default']
     Header: typeof import('./components/Header/index.vue')['default']
     Introduce: typeof import('./components/Introduce/index.vue')['default']

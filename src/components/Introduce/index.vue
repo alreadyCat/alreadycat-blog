@@ -23,24 +23,36 @@
             <div class="outside-chain">
                 <div class="outside-chain-item">
                     <div class="outside-chain-icon">
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-QQ1"></use>
-                        </svg>
+                        <a href="https://tool.gljlw.com/qq/?qq=1562996658" target="_blank" title="点击添加好友">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-QQ1"></use>
+                            </svg>
+                        </a>
                     </div>
                 </div>
 
                 <div class="outside-chain-item">
                     <div class="outside-chain-icon">
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-weixin"></use>
-                        </svg>
+
+
+                        <FancyBox>
+                            <a data-fancybox="gallery"
+                                data-src="https://blog-1259672777.cos.ap-nanjing.myqcloud.com/1810739817827405824-wechat.jpg"
+                                href="javascript:;" data-caption="微信扫我">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-weixin"></use>
+                                </svg>
+                            </a>
+                        </FancyBox>
                     </div>
                 </div>
                 <div class="outside-chain-item">
                     <div class="outside-chain-icon">
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-github-fill1"></use>
-                        </svg>
+                        <a href="https://github.com/alreadyCat" target="_blank" >
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-github-fill1"></use>
+                            </svg>
+                        </a>
                     </div>
                 </div>
                 <div class="outside-chain-item">
@@ -50,13 +62,13 @@
                         </svg>
                     </div>
                 </div>
-                <div class="outside-chain-item">
+                <!-- <div class="outside-chain-item">
                     <div class="outside-chain-icon">
                         <svg class="icon" aria-hidden="true">
                             <use xlink:href="#icon-steam_icon"></use>
                         </svg>
                     </div>
-                </div>
+                </div> -->
                 <div class="outside-chain-item">
                     <div class="outside-chain-icon">
                         <svg class="icon" aria-hidden="true">
@@ -64,44 +76,14 @@
                         </svg>
                     </div>
                 </div>
-                <!-- <div class="outside-chain-item">
-                    <div class="outside-chain-item-text">
-                        <span class="iconfont icon-wechat-fill"></span>
-                    </div>
-                </div>
-                <div class="outside-chain-item">
-                    <div class="outside-chain-item-text">
-                        <span class="iconfont icon-github-fill"></span>
-                    </div>
-                </div>
-                <div class="outside-chain-item">
-                    <div class="outside-chain-item-text">
-                        <span class="iconfont icon-facebook-fill"></span>
-                    </div>
-                </div>
-                <div class="outside-chain-item">
-                    <div class="outside-chain-item-text">
-                        <span class="iconfont icon-ea"></span>
-                    </div>
-                </div>
-                <div class="outside-chain-item">
-                    <div class="outside-chain-item-text">
-                        <span class="iconfont icon-steam"></span>
-                    </div>
-                </div>
-                <div class="outside-chain-item">
-                    <div class="outside-chain-item-text">
-                        <span class="iconfont icon-steam"></span>
-                    </div>
-                </div> -->
             </div>
         </div>
     </Card>
 </template>
 
 <script setup lang="ts">
-
 const imageCoverSrc = 'https://blog-1259672777.cos.ap-nanjing.myqcloud.com/1808001753694736384-097275FFD0C0FF12B24C4F159C73F35E.png'
+
 </script>
 
 <style scoped lang="scss">

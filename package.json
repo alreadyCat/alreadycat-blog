@@ -14,6 +14,8 @@
     "@algolia/autocomplete-js": "^1.17.2",
     "@algolia/autocomplete-theme-classic": "^1.17.2",
     "@docsearch/js": "3",
+    "@fancyapps/ui": "^5.0.36",
+    "@types/fancybox": "^3.5.7",
     "algoliasearch": "^4.24.0",
     "animate.css": "^4.1.1",
     "aplayer": "^1.10.1",

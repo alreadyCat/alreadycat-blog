@@ -6,7 +6,7 @@
         <div class="switch-column" @click="handleColumn" title="切换布局为两栏或一栏">
             <span class="iconfont icon-shushuanglan"></span>
         </div>
-        <div class="back-to-top" @click="handleTop" title="回到顶部">
+        <div class="back-to-top"  @click="handleTop" title="回到顶部">
             <span class="iconfont icon-icon_huidaodingbu"></span>
         </div>
         <div class="scroll-percent">
@@ -23,6 +23,7 @@
 
 <script setup lang="ts">
 import { useGlobalStore } from '@/store';
+import { useScroll } from 'vue-hooks-plus';
 
 const route = useRoute()
 const router = useRouter()
@@ -53,6 +54,7 @@ function handleHome() {
         store.setScrollPercent(scrollPercent);
     };
 })()
+
 </script>
 
 <style scoped lang="scss">
