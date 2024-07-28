@@ -2,22 +2,22 @@
     <Card :border="true">
         <div class="introduce-container">
             <div class="avatar-image">
-                <img :src="imageCoverSrc" alt="" />
+                <img src="https://blog-1259672777.cos.ap-nanjing.myqcloud.com/preview.gif" alt="" />
             </div>
-            <div class="name">AlreadyCat</div>
+            <div class="name">{{ store.userName }}</div>
             <div class="intro-text">学无止境</div>
             <div class="statistic">
                 <div class="statistic-block-item">
                     <div class="statistic-block-item-text">文章</div>
-                    <div class="statistic-block-item-number">20</div>
+                    <div class="statistic-block-item-number">{{ data?.articleCount }}</div>
                 </div>
                 <div class="statistic-block-item">
                     <div class="statistic-block-item-text">标签</div>
-                    <div class="statistic-block-item-number">30</div>
+                    <div class="statistic-block-item-number">{{ data?.tagCount }}</div>
                 </div>
                 <div class="statistic-block-item">
                     <div class="statistic-block-item-text">分类</div>
-                    <div class="statistic-block-item-number">8</div>
+                    <div class="statistic-block-item-number">{{ data?.categoryCount }}</div>
                 </div>
             </div>
             <div class="outside-chain">
@@ -48,7 +48,7 @@
                 </div>
                 <div class="outside-chain-item">
                     <div class="outside-chain-icon">
-                        <a href="https://github.com/alreadyCat" target="_blank" >
+                        <a href="https://github.com/alreadyCat" target="_blank">
                             <svg class="icon" aria-hidden="true">
                                 <use xlink:href="#icon-github-fill1"></use>
                             </svg>
@@ -82,14 +82,18 @@
 </template>
 
 <script setup lang="ts">
-const imageCoverSrc = 'https://blog-1259672777.cos.ap-nanjing.myqcloud.com/1808001753694736384-097275FFD0C0FF12B24C4F159C73F35E.png'
+import { getArticleStatistics } from '@/service';
+import { useGlobalStore } from '@/store';
 
+const store = useGlobalStore()
+
+const { data } = useRequest(getArticleStatistics)
 </script>
 
 <style scoped lang="scss">
 .introduce-container {
     width: 100%;
-    height: 313px;
+    height: 333px;
     box-sizing: border-box;
     padding: 20px 24px;
     display: flex;
@@ -113,6 +117,7 @@ const imageCoverSrc = 'https://blog-1259672777.cos.ap-nanjing.myqcloud.com/18080
     }
 
     .name {
+        margin: 10px 0;
         font-weight: 600;
         font-size: 30px;
         color: #000;

@@ -39,7 +39,7 @@ onMounted(() => {
 })
 
 
-watch([() => inner.value?.children[0].getBoundingClientRect().height, () => inner.value?.children[0].getBoundingClientRect().width], () => {
+watch(() => inner.value?.children[0].getBoundingClientRect().height, () => {
   handleHeightCollapse()
 })
 
@@ -47,7 +47,6 @@ function handleHeightCollapse() {
   if (props.border) {
     nextTick(() => {
       card.value!.style.height = inner.value!.children[0].getBoundingClientRect().height + 'px'
-      card.value!.style.width = inner.value!.children[0].getBoundingClientRect().width + 'px'
     })
   }
 }
@@ -55,14 +54,19 @@ function handleHeightCollapse() {
 
 <style scoped lang="scss">
 .card-container {
-  border-radius: 20px;
+  border-radius: 12px;
   background: rgba(242, 246, 249, 0.8);
-  box-shadow: 0 4px 33px 0 rgba(147, 195, 232, 0.7);
   animation: fadeInRight;
   animation-duration: 0.5s;
   transition: all 0.5s ease;
   position: relative;
   overflow: hidden;
+  border: 1px solid #e3e8f7;
+
+  &:hover {
+    box-shadow: 0 4px 18px 0 rgba(147, 195, 232, 0.7);
+    border-color: var(--pink-color);
+  }
 
   &.has-border {
     &:hover {
@@ -88,7 +92,7 @@ function handleHeightCollapse() {
 
   @keyframes fadeInRight {
     0% {
-      transform: translate3d(0, -30%, 0);
+      transform: translate3d(0, 30%, 0);
     }
   }
 }

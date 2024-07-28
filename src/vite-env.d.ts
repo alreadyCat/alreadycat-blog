@@ -10,10 +10,3 @@ declare module "*.vue" {
 }
 
 declare type VueNode = VNode;
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      [elem: HTMLElementTagNameMap]: unknown;
-    }
-  }
-}

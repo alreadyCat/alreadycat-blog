@@ -1,28 +1,25 @@
 <template>
-  <Card :border="true">
-    <div class="wrap">
-      <div class="cover" :style="{ order: props.coverPosition === 'right' ? 1 : 0 }">
-        <img class="cover-image" :src="props.coverImage" alt="">
+
+  <Card @click="handleGoToDetail">
+    <div class="wrap ">
+      <div class="cover">
+        <img v-lazyload="props.coverImage">
       </div>
       <div class="content">
-        <div class="title" @click="handleGoToDetail">
-          <span>{{ props.title }}</span>
-        </div>
-        <div class="detail">
-          <div class="date">
-            <span class="iconfont icon-riqi"></span>
-            发表于
-            {{ props.date }}
+        <div class="category-name">{{ props.categoryName }}</div>
+        <div class="title">{{ props.title }}</div>
+        <div class="info">
+          <div class="tags">
+            <div class="tag">
+              <SvgIcon name="24gf-tags" style="margin-right:5px;" />
+              <template v-for="(tag, index) in props.tags" :key="index">
+                {{ tag.name }}
+              </template>
+            </div>
           </div>
-          <div class="tag">
-            <span class="iconfont icon-biaoqian"></span>
-            <span class="tag-name" v-for="(tag, index) in tags " :key="index">
-              {{ tag }}
-              <span v-if="index + 1 !== tags.length"> | </span>
-            </span>
-          </div>
+
+          <div class="update-time">{{ dayjs(props.updateTime).format("YYYY-MM-DD") }}</div>
         </div>
-        <div class="desc"></div>
       </div>
     </div>
   </Card>
@@ -30,9 +27,9 @@
 
 <script setup lang="ts">
 import { Api } from '@/service/typings';
+import dayjs from 'dayjs';
 
-
-const props = defineProps<Pick<Api.ArticleEntity, 'id' | 'title' | 'date' | 'content' | 'tags' | 'coverImage'> & { coverPosition?: "left" | 'right' }>()
+const props = defineProps<Pick<Api.ArticleEntity, 'id' | 'title' | 'createTime'  | 'tags' | 'coverImage' | 'categoryName' | 'updateTime'> & { coverPosition?: "left" | 'right' }>()
 const router = useRouter()
 function handleGoToDetail() {
   router.push({
@@ -46,86 +43,94 @@ function handleGoToDetail() {
 
 <style scoped lang="scss">
 .wrap {
-  height: 269px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-
+  cursor: pointer;
   &:hover {
-    .content .title {
-      span {
-        background: linear-gradient(to right, #f08dca, #e6dd99) no-repeat right bottom;
-        background-size: 0 2px;
-        transition: background-size 1s;
-
-        &:hover {
-          background-position: left bottom;
-          background-size: 100% 2px;
-        }
-      }
+    .cover img {
+      transform: scale(1.1);
     }
-
-    // .cover-image {
-    //   transform: scale(1.1);
-    // }
   }
 
-
   .cover {
-    width: 44%;
-    height: 100%;
+    height: 225px;
+    width: 100%;
+    overflow: hidden;
 
-
-    .cover-image {
+    img {
       width: 100%;
-      height: 100%;
+      height: 225px;
+      object-fit: cover;
       transition: all 0.3s ease;
     }
   }
 
   .content {
-    width: 56%;
-    padding: 0 40px;
+    box-sizing: border-box;
+    height: 174px;
+    padding: 20px 32px;
+    font-family: "Roboto", sans-serif;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 9px;
-    font-family: "Roboto", sans-serif;
+
+    .category-name {
+      color: rgba(60, 60, 67, 0.8);
+      font-size: 14px;
+      margin-right: 8px;
+    }
 
     .title {
       font-size: 20px;
-      font-weight: 600;
-      line-height: 32px;
-      cursor: pointer;
-
+      font-weight: bold;
+      flex: 1;
+      line-height: 36px;
+      margin-top: 12px;
     }
 
-    .detail {
+    .info {
       display: flex;
-      color: rgba(0, 0, 0, 0.7);
-      font-size: 14px;
+      justify-content: space-between;
 
-      .date {
-        display: flex;
-        align-items: flex-end;
-
-        .iconfont {
-          margin-right: 5px;
+      .tags {
+        .tag {
+          display: flex;
+          align-items: center;
+          margin-right: 4px;
+          font-size: 16px;
+          color: #363636;
         }
       }
 
-      .tag {
+      .update-time {
         display: flex;
-        align-items: flex-end;
-        margin: 0 5px;
+        align-items: center;
+        font-size: 14px;
+      }
+    }
+  }
 
-        .tag-name {
-          margin-left: 5px;
-        }
+  
+
+
+  @media screen and (max-width: 1200px) {
+    display: flex;
+    height: 200px;
+
+    .cover {
+      height: 100%;
+      width: 70%;
+
+      img {
+        height: 100%;
+        width: 100%;
       }
     }
 
-    .desc {}
+    .content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
   }
 }
 </style>

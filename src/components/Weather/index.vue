@@ -3,7 +3,7 @@
         <div class="weather-contaienr">
             <div class="user-location">{{ weatherInfo.province + "-" + weatherInfo.city }}</div>
             <div class="weather-image">
-                <SvgIcon :name="weatherInfo.name" width="90" height="90"></SvgIcon>
+                <SvgIcon :name="weatherInfo.name" :size="90"></SvgIcon>
             </div>
             <div class="celsius">{{ weatherInfo.temperature }}℃</div>
             <div class="weather-text">{{ weatherInfo.weather }}</div>

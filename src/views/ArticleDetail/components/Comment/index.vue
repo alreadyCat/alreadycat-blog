@@ -8,7 +8,7 @@
 const route = useRoute()
 watch(()=>route.query.id,()=>{
     init()
-        const el = document.getElementsByClassName("tk-icon __comments")?.[0]
+        const el = document.getElementsByClassName("tk-icon __comments")?.[0] as HTMLElement
         el && el.click()
     
 },{immediate:true})

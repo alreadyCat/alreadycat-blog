@@ -10,5 +10,8 @@ import router from "./router";
 import "virtual:svg-icons-register";
 //@ts-ignore
 import InstantSearch from 'vue-instantsearch/vue3/es';
+import lazyLoad from "./directive/lazyLoad";
+import dayjs from "dayjs";
 
-createApp(App).use(createPinia()).use(InstantSearch).use(router).use(i18n).mount("#app");
+dayjs.locale("zh-cn")
+createApp(App).use(createPinia()).use(lazyLoad).use(InstantSearch).use(router).use(i18n).mount("#app");

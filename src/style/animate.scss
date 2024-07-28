@@ -1,0 +1,11 @@
+@keyframes breathingEffect {
+    0%,100%{
+        transform: translateY(0) scale(1);
+        opacity: 0.7;
+    }
+    50%{
+        transform: translateY(-30px) scale(1.1);
+        opacity: 1;
+    }
+}
+

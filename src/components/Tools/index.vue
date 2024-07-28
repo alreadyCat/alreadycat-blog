@@ -6,7 +6,7 @@
         <div class="switch-column" @click="handleColumn" title="切换布局为两栏或一栏">
             <span class="iconfont icon-shushuanglan"></span>
         </div>
-        <div class="back-to-top"  @click="handleTop" title="回到顶部">
+        <div class="back-to-top" @click="handleTop" title="回到顶部">
             <span class="iconfont icon-icon_huidaodingbu"></span>
         </div>
         <div class="scroll-percent">
@@ -18,42 +18,30 @@
         <div v-if="route.path !== '/'" class="back-to-home" @click="handleHome" title="回到首页">
             <span class="iconfont icon-huidaoshouye1"></span>
         </div>
+
     </div>
 </template>
 
 <script setup lang="ts">
 import { useGlobalStore } from '@/store';
-import { useScroll } from 'vue-hooks-plus';
 
 const route = useRoute()
 const router = useRouter()
 const store = useGlobalStore()
 function handleColumn() {
     const store = useGlobalStore()
-    store.toggleArticleDetailColumnLayout()
+    store.toggleColumnLayout()
 }
 function handleTheme() {
     store.toggleDark()
 }
 function handleTop() {
-    document.body.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    })
+    store.scrollToTop()
 }
 function handleHome() {
     router.push("/")
 }
-(function handleScrollPercent() {
-    window.onscroll = function () {
-        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-        var scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
-        var clientHeight = document.documentElement.clientHeight || window.innerHeight;
-        var scrollPercent = (scrollTop / (scrollHeight - clientHeight)) * 100;
 
-        store.setScrollPercent(scrollPercent);
-    };
-})()
 
 </script>
 

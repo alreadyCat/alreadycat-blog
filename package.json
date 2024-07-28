@@ -15,11 +15,11 @@
     "@algolia/autocomplete-theme-classic": "^1.17.2",
     "@docsearch/js": "3",
     "@fancyapps/ui": "^5.0.36",
-    "@types/fancybox": "^3.5.7",
     "algoliasearch": "^4.24.0",
     "animate.css": "^4.1.1",
     "aplayer": "^1.10.1",
     "axios": "^1.7.2",
+    "dayjs": "^1.11.12",
     "instantsearch.css": "^8.3.0",
     "instantsearch.js": "^4.73.0",
     "md-editor-v3": "^4.17.0",
@@ -34,6 +34,7 @@
     "vue-router": "^4.3.3"
   },
   "devDependencies": {
+    "@types/fancybox": "^3.5.7",
     "@types/node": "^20.14.6",
     "@types/swiper": "^6.0.0",
     "@vitejs/plugin-vue": "^5.0.4",

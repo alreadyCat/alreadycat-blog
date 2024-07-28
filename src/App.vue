@@ -8,7 +8,6 @@ import 'swiper/css';
 
 <style lang="scss">
 body > #app {
-  height: 100%;
 }
 
 

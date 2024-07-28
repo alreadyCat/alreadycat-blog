@@ -1,12 +1,17 @@
 @import "@/assets/fonts/Roboto/index.scss";
 @import "./md-editor-reset.scss";
-@import "@/assets/iconfont/iconfont.css";
+@import "../assets/iconfont/iconfont.css";
 @import "./dark.scss";
+@import './animate.scss';
 html,
 body {
-  height: 100%;
-  //overflow: auto;
-  transition: all 0.2s ease;
+  --theme-color: #D074D8;
+  --pink-color:#fec4d9;
+  background: #f7f9fe;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 
