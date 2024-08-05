@@ -42,7 +42,7 @@ const { data } = useRequest(getRecentlyReleaseArticle);
   padding: 16px;
   .recently-content {
     .card-title {
-      font-family: "Roboto", sans-serif;
+      font-family: "PingFang";
       font-weight: 600;
       margin-bottom: 8px;
     }
@@ -60,16 +60,16 @@ const { data } = useRequest(getRecentlyReleaseArticle);
           border-radius: 8px;
           overflow: hidden;
           img {
-            width: 80px;
-            height: 65px;
-            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
           }
         }
         .article-title {
           flex: 1;
           font-size: 16px;
-          font-family: "Roboto", sans-serif;
-          font-weight: 600;
+          font-family: "PingFang";
+          // font-weight: 600;
           display: -webkit-box;
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 3;
@@ -78,6 +78,10 @@ const { data } = useRequest(getRecentlyReleaseArticle);
           text-overflow: ellipsis;
           overflow: hidden;
           white-space: wrap;
+          transition: all 0.3s;
+          &:hover{
+            color: var(--pink-color);
+          }
         }
       }
     }

@@ -4,7 +4,8 @@
             <Card>
                 <div class="card-content article-tag">
                     <div class="tags">
-                        <div class="tag-item" :class="{
+                        <div class="tag-item" 
+                        :class="{
                             'active': item.id === Number(route.params.id)
                         }" v-for="(item, index) in tagList" :key="index" @click="router.push(`/tag/${item.id}`)">
                             <div class="tag-text"># {{ item.name }}</div>
@@ -101,19 +102,9 @@ const handleGoToDetail = (item: Api.ArticleEntity) => {
 
             .title {
                 font-size: 28px;
-                font-family: "Roboto", sans-serif;
+                font-family: "PingFang";
                 margin-bottom: 30px;
                 font-weight: 600;
-            }
-
-            &.article-tag {
-                .tags {
-
-                    .tag-item {
-                        padding: 6px 8px;
-                        font-size: 14px;
-                    }
-                }
             }
 
             .tags {
@@ -123,6 +114,7 @@ const handleGoToDetail = (item: Api.ArticleEntity) => {
                 gap: 18px;
 
                 .tag-item {
+                    cursor: pointer;
                     position: relative;
                     display: flex;
                     align-items: center;
@@ -130,13 +122,27 @@ const handleGoToDetail = (item: Api.ArticleEntity) => {
                     padding: 6px 8px;
                     background: #fff;
                     border-radius: 8px;
-                    font-size: 24px;
+                    font-size: 14px;
                     border: 1px solid #eee;
-                    cursor: pointer;
                     overflow: hidden;
                     z-index: 1;
                     color: #363636;
                     transition: all .5s ease;
+
+                    @mixin active {
+                        color: #fff;
+                        &::after {
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+
+                    &.active {
+                        @include active();
+                    }
+
+                    &:hover {
+                        @include active();
+                    }
 
                     &::after {
                         z-index: -1;
@@ -153,22 +159,7 @@ const handleGoToDetail = (item: Api.ArticleEntity) => {
                     }
 
 
-                    @mixin active {
 
-                        color: #fff;
-
-                        &::after {
-                            transform: translate(-50%, -50%);
-                        }
-                    }
-
-                    &:hover {
-                        @include active();
-                    }
-
-                    &.active {
-                        @include active();
-                    }
 
                 }
 
@@ -185,7 +176,7 @@ const handleGoToDetail = (item: Api.ArticleEntity) => {
                     position: absolute;
                     left: 0;
                     top: -1.5em;
-                    font-family: "Roboto", sans-serif;
+                    font-family: "PingFang";
                     font-size: 20px;
                     color: #555555;
                     font-weight: 600;
@@ -214,8 +205,9 @@ const handleGoToDetail = (item: Api.ArticleEntity) => {
                         border-radius: 12px;
 
                         img {
-                            width: 98px;
-                            height: 80px;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
                         }
                     }
 

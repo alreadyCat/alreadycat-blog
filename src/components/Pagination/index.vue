@@ -95,7 +95,7 @@ function handleChangePage(page: number) {
         border-radius: 8px;
         width: 35px;
         height: 35px;
-        font-family: "Roboto", sans-serif;
+        font-family: "PingFang";
         cursor: pointer;
         background: #fff;
         transition: .3s ease-in;

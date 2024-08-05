@@ -52,14 +52,14 @@ const gotoDetail = () => {
     padding: 12px 23px 8px 23px;
 
     .swiper-item-cate {
-      font-family: "Roboto", sans-serif;
+      font-family: "PingFang";
       font-size: 18px;
       line-height: 25px;
       color: #727272;
     }
 
     .swiper-item-title {
-      font-family: "Roboto", sans-serif;
+      font-family: "PingFang";
       font-size: 24px;
       line-height: 34px;
       color: #000000;
@@ -75,7 +75,7 @@ const gotoDetail = () => {
     }
 
     .swiper-item-date {
-      font-family: "Roboto", sans-serif;
+      font-family: "PingFang";
       font-size: 12px;
       line-height: 17px;
       color: #848484;
@@ -92,7 +92,7 @@ const gotoDetail = () => {
       margin-bottom: 0;
       cursor: pointer;
 
-      font-family: "Roboto", sans-serif;
+      font-family: "PingFang";
       font-size: 10px;
       font-weight: bold;
       line-height: 18px;

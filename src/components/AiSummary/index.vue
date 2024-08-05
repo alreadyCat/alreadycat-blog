@@ -37,7 +37,7 @@ function getAiSummary() {
   const id = route.query.id;
 
   const es = new EventSource(
-    `http://localhost:80/ai/sse?id=${route.query.id}`,
+    `${import.meta.env.VITE_API_URL}/ai/sse?id=${route.query.id}`,
     // { withCredentials: true }
   );
   es.onerror = function (event) {
@@ -52,8 +52,29 @@ function getAiSummary() {
       useTextFlashing().stop();
     }
     text.value = json.text;
+    // updateCursor();
   };
 }
+
+function getLastTextNode(node: HTMLElement) {
+  return node.lastElementChild
+}
+
+// function updateCursor() {
+//   nextTick(() => {
+
+//     const el = document.querySelector(".ai-summary-content .md-editor-preview") as HTMLElement
+//     const node = getLastTextNode(el)
+
+//     const textNode = document.createTextNode("|")
+//     if (node) {
+//       node.after(textNode)
+//     } else {
+//       el.appendChild(textNode)
+//     }
+//   })
+
+// }
 
 function useTextFlashing() {
   return {
@@ -76,7 +97,7 @@ function useTextFlashing() {
 <style scoped lang="scss">
 .ai-summary-card {
   margin-bottom: 24px;
-  font-family: "Roboto", sans-serif;
+  font-family: "PingFang";
 
   .ai-summary-container {
     padding: 24px;

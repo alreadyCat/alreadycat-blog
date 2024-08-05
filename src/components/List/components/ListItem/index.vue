@@ -64,7 +64,7 @@ const props = defineProps<ArticleList.ArticleInfo>();
     flex-direction: column;
 
     .article-list-item-title {
-      font-family: "Roboto ", sans-serif;
+      font-family: "Roboto ";
       font-size: 14px;
       font-weight: bold;
       line-height: 20px;
@@ -80,7 +80,7 @@ const props = defineProps<ArticleList.ArticleInfo>();
     }
 
     .article-list-item-date {
-      font-family: "Roboto", sans-serif;
+      font-family: "PingFang";
       font-size: 12px;
       font-weight: 300;
       line-height: 17px;

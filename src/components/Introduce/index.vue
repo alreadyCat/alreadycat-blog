@@ -1,5 +1,5 @@
 <template>
-    <Card :border="true">
+    <Card>
         <div class="introduce-container">
             <div class="avatar-image">
                 <img src="https://blog-1259672777.cos.ap-nanjing.myqcloud.com/preview.gif" alt="" />
@@ -57,9 +57,11 @@
                 </div>
                 <div class="outside-chain-item">
                     <div class="outside-chain-icon">
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-facebook"></use>
-                        </svg>
+                        <a href="https://www.facebook.com/profile.php?id=100044130703937" target="_blank">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-facebook"></use>
+                            </svg>
+                        </a>
                     </div>
                 </div>
                 <!-- <div class="outside-chain-item">
@@ -71,9 +73,12 @@
                 </div> -->
                 <div class="outside-chain-item">
                     <div class="outside-chain-icon">
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-fifa"></use>
-                        </svg>
+
+                        <a href="https://x.com/block58916262" target="_blank">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-twitter"></use>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -93,15 +98,15 @@ const { data } = useRequest(getArticleStatistics)
 <style scoped lang="scss">
 .introduce-container {
     width: 100%;
-    height: 333px;
+    height: 373px;
     box-sizing: border-box;
-    padding: 20px 24px;
+    padding: 20px 22px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
+    font-family: "PuHui", sans-serif;
     color: rgba($color: #000000, $alpha: 0.4);
 
     .avatar-image {

@@ -1,29 +1,27 @@
 <template>
-  <Card  :border="true">
-    <div class="task-list-contaienr">
-      <div class="title">任务清单</div>
+  <div class="task-list-contaienr">
+    <div class="title">任务清单</div>
 
-      <Swiper class="task-list" :modules="modules" :direction="'vertical'" :slides-per-view="6" :grabCursor="true"
-        :autoplay="{
-          delay: 3000,
-          disableOnInteraction: false,
-        }">
-        <SwiperSlide v-for="(item, index) in sortData" :key="index" :title="item.taskName">
-          <div class="checkbox-wrapper-15">
-            <input class="inp-cbx" id="cbx-15" type="checkbox" style="display: none" :checked="item.complete" />
-            <label class="cbx" for="cbx-15">
-              <span>
-                <svg width="12px" height="9px" viewbox="0 0 12 9">
-                  <polyline points="1 5 4 8 11 1"></polyline>
-                </svg>
-              </span>
-              <span class="text">{{ item.taskName }}</span>
-            </label>
-          </div>
-        </SwiperSlide>
-      </Swiper>
-    </div>
-  </Card>
+    <Swiper class="task-list" :modules="modules" :direction="'vertical'" :slides-per-view="6" :grabCursor="true"
+      :autoplay="{
+        delay: 3000,
+        disableOnInteraction: false,
+      }">
+      <SwiperSlide v-for="(item, index) in sortData" :key="index" :title="item.taskName">
+        <div class="checkbox-wrapper-15">
+          <input class="inp-cbx" id="cbx-15" type="checkbox" style="display: none" :checked="item.complete" />
+          <label class="cbx" for="cbx-15">
+            <span>
+              <svg width="12px" height="9px" viewbox="0 0 12 9">
+                <polyline points="1 5 4 8 11 1"></polyline>
+              </svg>
+            </span>
+            <span class="text">{{ item.taskName }}</span>
+          </label>
+        </div>
+      </SwiperSlide>
+    </Swiper>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -53,7 +51,7 @@ const sortData = computed(() =>
   overflow: hidden;
 
   .title {
-    font-family: "Roboto", sans-serif;
+    font-family: "PingFang";
     font-size: 16px;
     line-height: 25px;
     letter-spacing: 0px;
@@ -78,7 +76,7 @@ const sortData = computed(() =>
         overflow: hidden;
 
         span {
-          font-family: "Roboto Regular", sans-serif;
+          font-family: "Roboto Regular";
           font-weight: 500;
         }
       }

@@ -2,7 +2,7 @@
     <div class="resource-navigation">
         <Card>
             <div class="content">
-                <h1>资源导航</h1>
+                <!-- <h1>资源导航</h1> -->
                 <div class="list-content">
                     <div class="list" v-for="(key, index) in Object.keys(data || {})" :key="index">
                         <div class="title">{{ key }}</div>
@@ -43,7 +43,7 @@ console.log(data);
 <style scoped lang="scss">
 .resource-navigation {
     .content {
-        padding: 0 24px 24px;
+        padding: 24px;
 
         h1 {}
 
@@ -51,22 +51,24 @@ console.log(data);
             .list {
                 .title {
                     font-size: 24px;
+                    font-weight: bold;
                     margin-bottom: 12px;
                 }
 
                 .item-list {
-                    display: flex;
-                    flex-wrap: wrap;
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
                     gap: 12px;
+                    margin-bottom: 20px;
 
                     .item {
                         text-decoration: none;
                         color: inherit;
-                        width: 20%;
                         padding: 8px;
                         display: flex;
                         align-items: center;
-                        gap: 5px;
+                        justify-content: space-between;
+                        gap: 20px;
                         border: 1px solid rgba($color: #42444a, $alpha: .1);
                         border-radius: 12px;
                         transition: all .3s ease;
@@ -74,17 +76,21 @@ console.log(data);
 
                         &:hover {
                             border-color: var(--pink-color);
+
+                            .cover {
+                                width: 0%;
+                            }
                         }
 
                         .cover {
                             text-align: center;
                             width: 50px;
-                            height: 36px;
                             overflow: hidden;
+                            transition: all .3s ease;
 
                             img {
-                                width: 50px;
-                                height: 36px;
+                                width: 100%;
+                                transition: all .3s ease;
                                 object-fit: contain;
                             }
                         }

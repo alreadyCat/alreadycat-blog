@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "19446213",
+      "name": "推特",
+      "font_class": "twitter",
+      "unicode": "ea90",
+      "unicode_decimal": 60048
+    },
+    {
+      "icon_id": "9478714",
+      "name": "tab-最近访问",
+      "font_class": "tab-zuijinfangwen",
+      "unicode": "e642",
+      "unicode_decimal": 58946
+    },
+    {
       "icon_id": "23505849",
       "name": "light-bulb",
       "font_class": "light-bulb",

@@ -56,7 +56,7 @@ const props = defineProps<ArticleList.ArticleListItem>();
   overflow: hidden;
 
   .card-list-title {
-    font-family: "Roboto Bold", sans-serif;
+    font-family: "Roboto Bold";
     font-weight: 600;
     font-size: 18px;
     line-height: 25px;

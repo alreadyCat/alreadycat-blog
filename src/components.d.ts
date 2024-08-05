@@ -8,13 +8,11 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AiSummary: typeof import('./components/AiSummary/index.vue')['default']
-    Article: typeof import('./components/Article/index.vue')['default']
     ArticleCover: typeof import('./components/ArticleCover/index.vue')['default']
     Card: typeof import('./components/Card/index.vue')['default']
     Category: typeof import('./components/Category/index.vue')['default']
     CategoryItem: typeof import('./components/Category/components/CategoryItem/index.vue')['default']
     Comment: typeof import('./components/Comment/index.vue')['default']
-    copy: typeof import('./components/Layout/components/Top/index copy.vue')['default']
     FancyBox: typeof import('./components/FancyBox/index.vue')['default']
     Footer: typeof import('./components/Footer/index.vue')['default']
     Header: typeof import('./components/Header/index.vue')['default']
@@ -30,13 +28,11 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     Search: typeof import('./components/Search/index.vue')['default']
     SpliceLine: typeof import('./components/SpliceLine/index.vue')['default']
-    Statistic: typeof import('./components/Statistic/index.vue')['default']
     StatisticCard: typeof import('./components/StatisticCard/index.vue')['default']
     SvgIcon: typeof import('./components/SvgIcon/index.vue')['default']
     TimeLine: typeof import('./components/TimeLine/index.vue')['default']
     TodoList: typeof import('./components/TodoList/index.vue')['default']
     Tools: typeof import('./components/Tools/index.vue')['default']
-    Top: typeof import('./components/Layout/components/Top/index.vue')['default']
     Typed: typeof import('./components/AiSummary/components/Typed/index.vue')['default']
     Weather: typeof import('./components/Weather/index.vue')['default']
   }

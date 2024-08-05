@@ -39,7 +39,7 @@
           <div class="reading-time">
 
             <SvgIcon name='zaixianshichangfenxi' :size="20" color="#fff" />
-            <span class="update-date">阅读时长：4分钟</span>
+            <span class="update-date">阅读时长：{{ minutes }}分钟</span>
           </div>
           <div class="view-count">
 
@@ -49,12 +49,12 @@
           <div class="pub-position">
 
             <SvgIcon name='weizhi' :size="20" color="#fff" />
-            <span class="update-date">{{ data?.publishingLocation }}</span>
+            <span class="update-date">{{ data?.publishingLocation || "杭州" }}</span>
           </div>
           <div class="comment-count">
 
             <SvgIcon name='pinglunshu' :size="20" color="#fff" />
-            <span class="update-date">评论数: 200</span>
+            <span class="update-date">评论数: {{ data?.likeCount || 0 }}</span>
           </div>
         </div>
       </div>
@@ -87,13 +87,14 @@
 import { MdPreview } from "md-editor-v3";
 import "md-editor-v3/lib/style.css";
 import { useRoute } from "vue-router";
-import { getArticleById } from "@/service";
+import { getArticleById, viewArticle } from "@/service";
 import Catalog from "./components/Catalog/index.vue";
 import Recently from "./components/Recently/index.vue";
 import Comment from "./components/Comment/index.vue";
 import { previewTheme, codeTheme } from './index.config.ts'
 import { useGlobalStore } from "@/store/index.ts";
 import useSetWrapWidth from "@/hooks/useSetWrapWidth.ts";
+import { useInterval } from "vue-hooks-plus";
 
 const store = useGlobalStore()
 const route = useRoute();
@@ -119,6 +120,20 @@ const scaleCalc = computed(() => {
   const scale = store.currentScrollTop / el.value.offsetTop
   return 1 - (scale > 1 ? 1 : scale) * 0.4
 })
+
+const stop = watch(() => store.scrollPercent, (val) => {
+  if (val > 50 && val < 100) {
+    viewArticle(Number(route.query.id))
+    stop()
+  }
+}, {})
+
+
+const minutes = ref(0)
+useInterval(() => {
+  minutes.value++
+}, 1000 * 60)
+useInterval
 
 </script>
 
@@ -168,7 +183,7 @@ const scaleCalc = computed(() => {
           background-color: rgba($color: #fff, $alpha: .2);
           color: #fff;
           font-weight: 600;
-          font-family: "Roboto", sans-serif;
+          font-family: "PingFang";
           border-radius: 8px
         }
 

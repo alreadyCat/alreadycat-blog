@@ -1,14 +1,12 @@
 <template>
-    <Card :border="true">
-        <div class="weather-contaienr">
-            <div class="user-location">{{ weatherInfo.province + "-" + weatherInfo.city }}</div>
-            <div class="weather-image">
-                <SvgIcon :name="weatherInfo.name" :size="90"></SvgIcon>
-            </div>
-            <div class="celsius">{{ weatherInfo.temperature }}℃</div>
-            <div class="weather-text">{{ weatherInfo.weather }}</div>
+    <div class="weather-contaienr">
+        <div class="user-location">{{ weatherInfo.province + "-" + weatherInfo.city }}</div>
+        <div class="weather-image">
+            <SvgIcon :name="weatherInfo.name" :size="90"></SvgIcon>
         </div>
-    </Card>
+        <div class="celsius">{{ weatherInfo.temperature }}℃</div>
+        <div class="weather-text">{{ weatherInfo.weather }}</div>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -43,9 +41,9 @@ onMounted(async () => {
 <style lang="scss" scoped>
 .weather-contaienr {
     width: 100%;
-    height: 300px;
+    height: 340px;
     box-sizing: border-box;
-    padding: 27px 50px;
+    padding: 20px 22px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -53,7 +51,7 @@ onMounted(async () => {
 
     .user-location {
         text-align: center;
-        font-family: "Roboto", sans-serif;
+        font-family: "PingFang";
         font-size: 18px;
         font-weight: bold;
         line-height: 25px;
@@ -65,7 +63,7 @@ onMounted(async () => {
     .weather-image {}
 
     .celsius {
-        // font-family: "Roboto", sans-serif;
+        // font-family: "PingFang";
         font-size: 36px;
         font-weight: 600;
         line-height: 25px;
@@ -75,7 +73,7 @@ onMounted(async () => {
     }
 
     .weather-text {
-        font-family: "Roboto", sans-serif;
+        font-family: "PingFang";
         font-size: 18px;
         font-weight: normal;
         line-height: 25px;

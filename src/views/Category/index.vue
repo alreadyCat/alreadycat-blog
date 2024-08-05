@@ -6,7 +6,7 @@
                     <div class="title">分类总览</div>
                     <div class="cates">
                         <div class="cate-item" v-for="(item, index) in data" :key="index">
-                            <div class="cate-text"># {{ item.categoryName }}</div>
+                            <div class="cate-text"># {{ item.name }}</div>
                         </div>
                     </div>
                 </div>
@@ -43,7 +43,7 @@ const { data } = useRequest(getCateList)
 
             .title {
                 font-size: 28px;
-                font-family: "Roboto", sans-serif;
+                font-family: "PingFang";
                 margin-bottom: 30px;
                 font-weight: 600;
             }

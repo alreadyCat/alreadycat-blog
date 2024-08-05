@@ -24,19 +24,18 @@ export declare namespace Api {
     published: number;
     viewCount: number;
     likeCount: number;
+    wordCount: number;
     coverImage: string;
     categoryId: number;
     categoryName: string;
     publishingLocation: string;
-    viewCount: number;
-    wordCount: number;
   };
   type CarouselCategory = {
     id: number;
     title: string;
     date: string;
     categoryId: number;
-    categoryName: string;
+    name: string;
     coverImage: string;
     tags: string[];
   };
@@ -62,7 +61,7 @@ export declare namespace Api {
     /**
      * 分类名
      */
-    categoryName: string
+    name: string
 
     /**
      * 分类图片网络地址
@@ -73,7 +72,7 @@ export declare namespace Api {
     /**
      * 分类下有多少文章
      */
-    categoryArticleCount: number
+    articleCount: number
   }
 
 

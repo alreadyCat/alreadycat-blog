@@ -97,7 +97,7 @@ const handleGoToDetail = (item: Api.ArticleEntity) => {
 
             .title {
                 font-size: 28px;
-                font-family: "Roboto", sans-serif;
+                font-family: "PingFang";
                 margin-bottom: 30px;
                 font-weight: 600;
             }
@@ -111,7 +111,7 @@ const handleGoToDetail = (item: Api.ArticleEntity) => {
                     position: absolute;
                     left: 0;
                     top: -1.5em;
-                    font-family: "Roboto", sans-serif;
+                    font-family: "PingFang";
                     font-size: 20px;
                     color: #555555;
                     font-weight: 600;

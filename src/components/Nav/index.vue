@@ -10,7 +10,7 @@
         <div class="nav-list">
           <div class="nav-item-box fenlei">
             <div class="nav-item ">
-              <SvgIcon name="fenlei2" :size="25"></SvgIcon>
+              <span class="iconfont icon-fenlei2"></span>
             </div>
           </div>
           <div class="nav-item-box go-home">
@@ -120,10 +120,10 @@
                 <span class="iconfont icon-shiguangzhou"></span>
                 <span class="nav-item-text">时光机</span>
               </div>
-              <div class="nav-item">
+              <!-- <div class="nav-item">
                 <span class="iconfont icon-fenxiang"></span>
                 <span class="nav-item-text">分享</span>
-              </div>
+              </div> -->
             </div>
 
           </div>
@@ -302,7 +302,7 @@ useSetWrapWidth(".top-wrap")
         height: 100%;
         text-align: center;
         transition: all 0.3s ease;
-        font-family: "Roboto", sans-serif;
+        font-family: "PingFang";
         font-weight: 600;
         font-size: 22px;
       }

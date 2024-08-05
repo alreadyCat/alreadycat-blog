@@ -55,7 +55,7 @@ const items = computed(() => {
                 font-weight: 600;
                 font-size: 48px;
                 letter-spacing: normal;
-                font-family: "Roboto", sans-serif;
+                font-family: "PingFang";
                 letter-spacing: .25em;
                 user-select: none;
             }
@@ -68,7 +68,7 @@ const items = computed(() => {
     }
 
     .content {
-        margin: 20px auto;
+        margin: 20px auto !important;
 
         .card-content {
             padding: 20px 50px;

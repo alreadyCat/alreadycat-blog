@@ -50,7 +50,7 @@ useSetWrapWidth('.footer-wrap')
         line-height: 36px;
         letter-spacing: 0.15px;
         color: #000;
-        font-family: "Nunito", sans-serif;
+        font-family: "Nunito";
       }
     }
 
@@ -63,7 +63,7 @@ useSetWrapWidth('.footer-wrap')
         gap: 35px;
 
         .footer-center-nav-item {
-          font-family: "Nunito", sans-serif;
+          font-family: "Nunito";
           font-size: 14px;
           font-weight: normal;
           line-height: 21px;

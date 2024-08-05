@@ -50,7 +50,7 @@ const handleChangeLanguage = () => {
 
     .header-left {
       .header-logo {
-        font-family: "Nunito", sans-serif;
+        font-family: "Nunito";
         font-size: 24px;
         color: #000000;
         line-height: 36px;
@@ -65,7 +65,7 @@ const handleChangeLanguage = () => {
         justify-content: space-between;
         align-items: center;
         gap: 32px;
-        font-family: "Nunito", sans-serif;
+        font-family: "Nunito";
         line-height: 36px;
         color: #435565;
         font-size: 16px;
@@ -112,7 +112,7 @@ const handleChangeLanguage = () => {
     }
 
     .header-title {
-      font-family: "Nunito", sans-serif;
+      font-family: "Nunito";
       font-size: 32px;
       line-height: 36px;
       color: #000;
@@ -120,7 +120,7 @@ const handleChangeLanguage = () => {
     }
 
     .header-introduce-txt {
-      font-family: "Nunito", sans-serif;
+      font-family: "Nunito";
       font-size: 14px;
       font-weight: normal;
       line-height: 21px;

@@ -83,7 +83,6 @@ export const getArticlePage = async ({ pageNum, pageSize, ...data }: Api.PageQue
       pageNum, pageSize
     },
     data,
-    method: "post"
   })
 }
 
@@ -130,6 +129,13 @@ export const getPhotoList = async (params: Api.PageQueryParam) => {
 
 export const getNavigationList = async () => {
   return request<{
-    [key:string]:Api.Navigation[]
+    [key: string]: Api.Navigation[]
   }>("/navigation/listByType");
+};
+
+
+export const viewArticle = async (id: number) => {
+  return request(`/article/viewArticle/${id}`, {
+    method: "post"
+  });
 };

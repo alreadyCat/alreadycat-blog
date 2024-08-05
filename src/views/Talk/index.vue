@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="talk-location">
                                     <span class="iconfont icon-weizhi"></span>
-                                    杭州
+                                    {{ item.location }}
                                 </div>
                             </div>
                         </template>
@@ -56,7 +56,7 @@ const { data } = useRequest(getTalkList)
 
 <style scoped lang="scss">
 .talk-container {
-    // font-family: "Roboto", sans-serif;
+    // font-family: "PingFang";
 
     .cover {
         width: 100%;

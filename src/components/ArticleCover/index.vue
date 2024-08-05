@@ -6,7 +6,7 @@
         <img v-lazyload="props.coverImage">
       </div>
       <div class="content">
-        <div class="category-name">{{ props.categoryName }}</div>
+        <div class="category-name">{{ props.name }}</div>
         <div class="title">{{ props.title }}</div>
         <div class="info">
           <div class="tags">
@@ -29,7 +29,7 @@
 import { Api } from '@/service/typings';
 import dayjs from 'dayjs';
 
-const props = defineProps<Pick<Api.ArticleEntity, 'id' | 'title' | 'createTime'  | 'tags' | 'coverImage' | 'categoryName' | 'updateTime'> & { coverPosition?: "left" | 'right' }>()
+const props = defineProps<Pick<Api.ArticleEntity, 'id' | 'title' | 'createTime' | 'tags' | 'coverImage' | 'categoryName' | 'updateTime'>>()
 const router = useRouter()
 function handleGoToDetail() {
   router.push({
@@ -44,6 +44,7 @@ function handleGoToDetail() {
 <style scoped lang="scss">
 .wrap {
   cursor: pointer;
+
   &:hover {
     .cover img {
       transform: scale(1.1);
@@ -67,7 +68,7 @@ function handleGoToDetail() {
     box-sizing: border-box;
     height: 174px;
     padding: 20px 32px;
-    font-family: "Roboto", sans-serif;
+    font-family: "PingFang";
     display: flex;
     flex-direction: column;
 
@@ -107,7 +108,7 @@ function handleGoToDetail() {
     }
   }
 
-  
+
 
 
   @media screen and (max-width: 1200px) {

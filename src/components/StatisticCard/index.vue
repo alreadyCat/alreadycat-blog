@@ -1,48 +1,46 @@
 <template>
-    <Card>
-        <div class="statistic-card">
-            <div class="tags">
-                <div class="tag" v-for="(tag, index) in data?.tagsStats" :key="index" :data-count="tag.count"
-                    @click="$router.push(`/tag/${tag.id}`)">
-                    {{ tag.tagName }}
-                </div>
+    <div class="statistic-card">
+        <div class="tags">
+            <div class="tag" v-for="(tag, index) in data?.tagsStats" :key="index" :data-count="tag.count"
+                @click="$router.push(`/tag/${tag.id}`)">
+                {{ tag.tagName }}
             </div>
-            <hr>
-            <!-- <div class="categories">
+        </div>
+        <!-- <hr> -->
+        <!-- <div class="categories">
                 <div class="category" v-for="(cate, index) in data?.categoryStats" :key="index"
                     :data-count="cate.count">
                     {{ cate.categoryName }}
                 </div>
             </div> -->
-            <!-- <hr> -->
-            <div class="group-by-year-article">
-                <div class="item" v-for="(item, index) in data?.articleStats" :key="index"
-                    @click="handleSearchArticle(item)">
-                    <div class="time">{{ dayjs(item.time).month() + 1 + "月" }} <span class="year">{{
-                        dayjs(item.time).year() }}</span></div>
-                    <div class="count">{{ item.count }} <span class="unit">篇</span></div>
-                </div>
-            </div>
-            <hr>
-            <div class="statistic-data">
-                <div class="article-count">
-                    <SvgIcon name="161"></SvgIcon>
-                    <span class='text'>文章总数：</span>
-                    <span class='number'>{{ data?.articleCount }}</span>
-                </div>
-                <div class="build-site-days">
-                    <SvgIcon name="zaixianshichangfenxi"></SvgIcon>
-                    <span class='text'>建站天数：</span>
-                    <span class='number'>{{ data?.buildSiteDays }} 天</span>
-                </div>
-                <div class="site-word-count">
-                    <SvgIcon name="zishutongji"></SvgIcon>
-                    <span class='text'>全站字数：</span>
-                    <span class='number'>{{ ((data?.wordCount || 0) / 1000).toFixed(1) + "k" }}</span>
-                </div>
+        <hr>
+        <div class="group-by-year-article">
+            <div class="item" v-for="(item, index) in data?.articleStats" :key="index"
+                @click="handleSearchArticle(item)">
+                <div class="time">{{ dayjs(item.time).month() + 1 + "月" }} <span class="year">{{
+                    dayjs(item.time).year() }}</span></div>
+                <div class="count">{{ item.count }} <span class="unit">篇</span></div>
             </div>
         </div>
-    </Card>
+        <hr>
+        <div class="statistic-data">
+            <div class="article-count">
+                <SvgIcon name="161"></SvgIcon>
+                <span class='text'>文章总数：</span>
+                <span class='number'>{{ data?.articleCount }} 篇</span>
+            </div>
+            <div class="build-site-days">
+                <SvgIcon name="zaixianshichangfenxi"></SvgIcon>
+                <span class='text'>建站天数：</span>
+                <span class='number'>{{ data?.buildSiteDays }} 天</span>
+            </div>
+            <div class="site-word-count">
+                <SvgIcon name="zishutongji"></SvgIcon>
+                <span class='text'>全站字数：</span>
+                <span class='number'>{{ ((data?.wordCount || 0) / 1000).toFixed(1) + "k" }}</span>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -66,9 +64,9 @@ function handleSearchArticle(item: Api.SiteStatisticType['articleStats'][0]) {
 <style scoped lang='scss'>
 .statistic-card {
     width: 100%;
-    padding: 20px 24px;
+    padding: 10px 22px 20px;
     overflow: hidden;
-    font-family: "Roboto", sans-serif;
+    font-family: "PingFang";
     box-sizing: border-box;
     color: #4c4948;
     font-size: 16px;
@@ -77,6 +75,7 @@ function handleSearchArticle(item: Api.SiteStatisticType['articleStats'][0]) {
 
         display: inline-block;
         margin-right: 15px;
+        margin-bottom: 15px;
         cursor: pointer;
         font-size: 18px;
         color: #363636;
@@ -99,6 +98,7 @@ function handleSearchArticle(item: Api.SiteStatisticType['articleStats'][0]) {
         }
     }
 
+
     .tags {
         .tag {
             @include hover;
@@ -108,6 +108,7 @@ function handleSearchArticle(item: Api.SiteStatisticType['articleStats'][0]) {
     hr {
         border: 1px dashed #425aef23;
         margin: 12px 0;
+        visibility: hidden;
     }
 
     .group-by-year-article {

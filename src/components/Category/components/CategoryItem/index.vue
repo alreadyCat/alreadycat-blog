@@ -36,7 +36,7 @@ const props = defineProps<{
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      font-family: "Roboto", sans-serif;
+      font-family: "PingFang";
       font-size: 18px;
       font-weight: 600;
       text-align: center;
@@ -48,7 +48,7 @@ const props = defineProps<{
   }
 
   .category-item-name {
-    font-family: "Roboto", sans-serif;
+    font-family: "PingFang";
     font-size: 24px;
     font-weight: 500;
     line-height: 34px;

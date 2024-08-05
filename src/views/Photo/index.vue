@@ -90,7 +90,7 @@ const { data } = useRequest(getPhotoList)
             font-weight: 600;
             font-size: 48px;
             letter-spacing: normal;
-            font-family: "Roboto", sans-serif;
+            font-family: "PingFang";
             letter-spacing: .25em;
             user-select: none;
         }

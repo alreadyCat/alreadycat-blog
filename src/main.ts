@@ -12,6 +12,6 @@ import "virtual:svg-icons-register";
 import InstantSearch from 'vue-instantsearch/vue3/es';
 import lazyLoad from "./directive/lazyLoad";
 import dayjs from "dayjs";
-
+import "@/assets/iconfont/iconfont.js"
 dayjs.locale("zh-cn")
 createApp(App).use(createPinia()).use(lazyLoad).use(InstantSearch).use(router).use(i18n).mount("#app");

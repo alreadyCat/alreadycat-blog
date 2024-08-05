@@ -77,10 +77,10 @@ const routes: Array<RouteRecordRaw> = [
                 name: "resource-navigation",
                 component: () => import("@/views/ResourceNavigation/index.vue"),
                 meta: {
-                    title: "说说"
+                    title: "资源导航"
                 }
             },
-            
+
 
         ]
     },

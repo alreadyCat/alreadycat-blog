@@ -56,7 +56,7 @@ const { data } = useRequest(getTagList)
 
             .title {
                 font-size: 28px;
-                font-family: "Roboto", sans-serif;
+                font-family: "PingFang";
                 margin-bottom: 30px;
                 font-weight: 600;
             }
@@ -99,7 +99,7 @@ const { data } = useRequest(getTagList)
                         content: "";
                         display: block;
                         top: 65%;
-                        left: 60%;
+                        left: 70%;
                         width: 200px;
                         height: 100px;
                         border-radius: 50%;

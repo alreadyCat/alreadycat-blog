@@ -1,3 +1,13 @@
+import night from '@/assets/images/night.jpg';
+import day from '@/assets/images/day.jpg';
+import sunset from '@/assets/images/sunset.jpg';
+
+
+const imageMap = {
+    day: day,
+    night: night,
+    sunset: sunset
+}
 export default function useSetBackGround(selector: string) {
 
 
@@ -16,9 +26,9 @@ export default function useSetBackGround(selector: string) {
     function setImage(el: HTMLElement) {
         if (!el) return
 
-        const str = getTime();
+        const timeStr = getTime();
         // (document.querySelector(selector) as HTMLElement).style.background = `url(/src/assets/images/${getTime()}.jpg) no-repeat`
-        el.style.background = `url(/src/assets/images/night.jpg) no-repeat`
+        el.style.background = `url(${imageMap[timeStr]}) no-repeat`
     }
     onMounted(() => {
         const el = (document.querySelector(selector) as HTMLElement)

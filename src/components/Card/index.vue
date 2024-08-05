@@ -1,5 +1,5 @@
 <template>
-  <div class="card-container" :class="{ 'has-border': props.border }" ref="card">
+  <div class="card-container" :class="{ 'has-border': props.border, 'hover': props.hover }" ref="card">
     <div class="inner" ref="inner">
       <slot />
     </div>
@@ -10,7 +10,8 @@
 const inner = ref<HTMLElement>()
 const card = ref<HTMLElement>()
 const props = defineProps<{
-  border?: boolean
+  border?: boolean;
+  hover?: boolean;
 }>()
 
 
@@ -55,7 +56,7 @@ function handleHeightCollapse() {
 <style scoped lang="scss">
 .card-container {
   border-radius: 12px;
-  background: rgba(242, 246, 249, 0.8);
+  background: rgba(242, 246, 249, 1);
   animation: fadeInRight;
   animation-duration: 0.5s;
   transition: all 0.5s ease;
@@ -63,7 +64,7 @@ function handleHeightCollapse() {
   overflow: hidden;
   border: 1px solid #e3e8f7;
 
-  &:hover {
+  &.hover:hover {
     box-shadow: 0 4px 18px 0 rgba(147, 195, 232, 0.7);
     border-color: var(--pink-color);
   }

@@ -18,10 +18,12 @@
       <Pagination :total="data?.total" @change="handleChangePage" />
     </div>
     <div class="right" v-if="store.columnLayout === 'two'">
-      <Introduce class="function-card" />
-      <Weather class="function-card" />
-      <Statistic class="function-card" />
-      <TodoList class="function-card" />
+      <Card class="content">
+        <Introduce class="function-card" />
+        <Weather class="function-card" />
+        <Statistic class="function-card" />
+        <TodoList class="function-card" />
+      </Card>
     </div>
   </div>
 </template>
@@ -102,7 +104,7 @@ function handleScroll() {
 
   .username,
   .motto {
-    font-family: "AliPuHui", sans-serif;
+    font-family: "AliPuHui";
     font-weight: 600;
     color: #fff;
     left: 12%;
@@ -144,11 +146,36 @@ function handleScroll() {
     @media screen and (max-width: 1200px) {
       display: none;
     }
+
+    .content {
+      :deep(.card-container) {
+        background: none !important;
+        border: none;
+        border-radius: 0;
+      }
+
+      .function-card:not(:last-child) {
+        position: relative;
+
+        &::after {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          display: block;
+          content: "";
+          border: 1px dashed rgba(66, 90, 239, 0.1);
+          width: 90%;
+        }
+      }
+    }
   }
 
   .post-item:not(:last-child),
   .function-card:not(:last-child) {
     margin-bottom: 20px;
   }
+
+
 }
 </style>

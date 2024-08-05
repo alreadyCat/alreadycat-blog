@@ -5,8 +5,7 @@
         <span class="iconfont icon-mulu-lujing"></span>
         文章目录
       </div>
-      <MdCatalog scrollElement=".main" :editorId="editorId" :offsetTop="80"
-        :scrollElementOffsetTop="60" />
+      <MdCatalog :scrollElement="scrollEl" :editorId="editorId" :offsetTop="80" :scrollElementOffsetTop="60" />
     </div>
   </Card>
 </template>
@@ -19,7 +18,7 @@ defineProps<{
 }>();
 
 
-
+const scrollEl = document.documentElement
 </script>
 
 <style lang="scss" scoped>
@@ -28,7 +27,7 @@ defineProps<{
 
   .catalog-content {
     .card-title {
-      font-family: "Roboto", sans-serif;
+      font-family: "PingFang";
       font-weight: 600;
       margin-bottom: 8px;
     }
